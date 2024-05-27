@@ -1,55 +1,47 @@
-import Image from "next/image"
+import Image from "next/image";
+import { useRef, useEffect } from "react";
 import { gsap } from 'gsap';
-import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+
+interface ImageProp {
+  src1: any,
+  src2: any,
+  src3: any
 
 
-
-interface ImageProp{
-    src:any
 }
 
-const ProjectImage=({src}: ImageProp)=>{
-    const containerRef=useRef(null);
-    const mainContainerRef=useRef(null);
+const ProjectImage = ({ src1,src2,src3 }: ImageProp) => {
+  const mainContainerRef = useRef(null);
+  const panelContainerRef = useRef(null);
 
-    // useGSAP(()=>{
-    //     gsap.to(containerRef.current,{
-    //        opacity:1,
-    //        width:'100%',
-    //        height:'100%',
-    //        duration:1.5,
-    //        scrollTrigger:{
-    //         trigger:mainContainerRef.current,
-    //         markers:true,
-    //         start:'top 30%',
-    //         end:'top 20%',
-    //         toggleActions: 'play none none reverse',
+  useEffect(() => {
+    const panels = panelContainerRef.current.children;
 
-    //        }
-    //     })
-    // })
-    return (
-        <div ref={mainContainerRef} className="  flex justify-center pt-[50px] flex overflow-x-scroll border border-3 border-green-500 border-solid" >
-        <Image
-        className="shrink-0 space-x-4"
-        ref={containerRef}
-        src={src}
-        alt="React"
-        objectFit="cover"
-        width={300}
-        height={300}/>
-        <Image
-        className="shrink-0 "
-        ref={containerRef}
-        src={src}
-        alt="React"
-        objectFit="cover"
-        width={300}
-        height={300}/>
-        
-       
-        </div>
-    )
-}
-export default ProjectImage 
+    // Create GSAP timeline for the animation
+    const tl = gsap.timeline({ repeat: -1,yoyo:true,delay:1, defaults: { duration: 3, ease: 'power1.inOut' } });
+    
+    // Define the animation
+    tl.to(panelContainerRef.current, { x: '-100%', duration: 3 })
+      .to(panelContainerRef.current, { x: '-200%', duration: 3 })
+      .to(panelContainerRef.current, { x: '0%', duration: 0 }); // Loop back to the start
+
+  }, []);
+
+  return (
+    <div 
+      ref={mainContainerRef} 
+      className="w-full h-full overflow-hidden  " 
+    >
+      <div 
+        ref={panelContainerRef} 
+        className="panel-container flex w-full h-full shadow-2xl shadow-stone-100"
+      >
+        <Image className="panel flex-shrink-0 w-full h-full" src={src1} alt="React" />
+        <Image className="panel flex-shrink-0 w-full h-full" src={src2} alt="React" />
+        <Image className="panel flex-shrink-0 w-full h-full" src={src3} alt="React" />
+      </div>
+    </div>
+  );
+};
+
+export default ProjectImage;

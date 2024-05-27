@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors:{
-        'stone':'#f5f5f4'
+        'stone-50':'#f5f5f4',
+        'stone-100': '#d4d4d8'
 
       },
       backgroundImage: {

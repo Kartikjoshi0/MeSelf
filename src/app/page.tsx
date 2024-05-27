@@ -36,7 +36,7 @@ const Home = () => {
     <>
     <div className=' relative z-2 overflow-hidden'>
       <div className='pannel  w-screen h-[500px] bg-black'><Intro /></div>
-      <div  className='pannel  w-screen h-[500px] bg-gray-200 '><Tech /></div>
+      <div  className='pannel  w-screen h-[500px] bg-stone-50 '><Tech /></div>
     </div>
     <div className='relative z-50'>
       <Projects />

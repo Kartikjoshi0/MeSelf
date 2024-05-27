@@ -3,6 +3,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Text from './Text';
 import profile from '../../../public/project/houcine-ncib-B4TjXnI0Y2c-unsplash.jpg'
+import profile1 from '../../../public/aws-icon.svg'
+import profile2 from '../../../public/nextjs-icon.svg'
+
 
 import ProjectImage from './ProjectImage';
 gsap.registerPlugin(ScrollTrigger);
@@ -22,48 +25,42 @@ const Projects=()=>{
                 end: () => `+=${(panels[0]as HTMLElement).offsetWidth * panels.length}`
             }
         })
-        // gsap.to('.panel',{
-        //     x:100,
-        //     y:-100,
-        //     ease:'none',
-        //     duration:5,
-        //     scrollTrigger:{
-        //         trigger:'.text-panel',
-        //         pin:true,
-        //         start:'top bottom ',
-        //         end:'top 80%',
-        //         scrub: 1,
-        //     }
-        // })
+      
         
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
           };
     },[])
-    return <div className="projects-container flex  w-screen h-[500px] overflow-hidden">
+    return <div className="projects-container flex bg-stone-50  w-screen h-[500px] overflow-hidden ">
 
-    <div className='  project-panel  shrink-0 w-screen h-[500px] bg-stone flex-col '>
+    <div className='  project-panel  shrink-0 w-screen h-[500px]  flex-col '>
         <div className=' text-6xl pl-[100px] pt-5'>Projects</div>
         <div className="text-panel  text-2xl flex flex-row ">
-            <div className=' w-[200px] h-[200px] my-[30px] mx-[80px] '>
-                <ProjectImage  src={profile}/>
+            <div className='w-1/2 h-[300px] my-10 mx-10 '>
+            <ProjectImage  src1={profile} src2={profile1} src3={profile2}/>
+
             </div>
-            <div className=' w-[200px] h-[200px]'><Text /></div>
+            <div className='w-1/2  '><Text heading='Leetcode clone' about='this is a webapplication loremfsjkafhdsjghfkdjgkfdjglkfdkgend' tech='rect nodejs aws etc ' /></div>
         </div>
     </div>
 
 
-    <div className=' project-panel shrink-0 w-screen h-[500px] bg-white'>
-    <div className="text-panel w-fit text-2xl flex flex-row ">
-    <div className=' w-[200px] h-[200px] my-[30px] mx-[80px] border border-3 border-gray-800 border-solid'>
-                <ProjectImage  src={profile}/>
+    <div className=' project-panel shrink-0 w-screen h-[500px] m-10'>
+    <div className="text-panel  text-2xl flex flex-row ">
+            <div className='w-1/2 h-[300px] my-10 mx-10  '>
+            <ProjectImage  src1={profile} src2={profile1} src3={profile2}/>
+
             </div>
-            <div className=' w-[200px] h-[200px]'><Text /></div>
+            <div className='w-1/2 h-[300px]  m-10  '><Text heading='Leetcode clone' about='this is a webapplication loremfsjkafhdsjghfkdjgkfdjglkfdkg' tech='rect nodejs aws etc ' /></div>
         </div>
     </div>
-    <div className='project-panel shrink-0 w-screen h-[500px] bg-gray-300'>
-    <div className="text-panel w-fit text-2xl    ">
-            <div className="panel ">Textdcfdsf</div>
+    <div className='project-panel shrink-0 w-screen h-[500px] m-10'>
+    <div className="text-panel  text-2xl flex flex-row  ">
+    <div className='w-1/2 h-[300px] my-10 mx-10 '>
+            <ProjectImage  src1={profile} src2={profile1} src3={profile2}/>
+
+            </div>
+            <div className='w-1/2 h-[300px]  m-10  '><Text heading='Leetcode clone' about='this is a webapplication loremfsjkafhdsjghfkdjgkfdjglkfdkg' tech='rect nodejs aws etc ' /></div>
         </div>
     </div>
   </div>

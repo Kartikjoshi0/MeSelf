@@ -4,8 +4,13 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+interface textProp{
+    heading: string,
+    about: string,
+    tech: string
+}
 
-const Text = () => {
+const Text = ({heading , about , tech}: textProp) => {
     const container = useRef(null);
 
     useEffect(() => {
@@ -31,13 +36,10 @@ const Text = () => {
     }, []);
 
     return (
-        <div ref={container} className="text-container flex flex-col pt-5 gap-2 text-2xl pl-10 w-screen h-screen border-2 border-solid border-black">
-            <div className="text">HI there its</div>
-            <div className="text">good to see</div>
-            <div className="text">u here</div>
-            <div className="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat distinctio ea dignissimos laudantium tenetur adipisci vitae error culpa quas. Alias aliquid atque consequatur provident ab qui ipsa illum aperiam. Magnam.</div>
-
-            
+        <div ref={container} className="text-container w-[600px] h-[350px] pr-[100px] shadow-2xl shadow-stone-100 bg-white rounded-md  flex flex-col  gap-2 text-2xl pl-10 w-screen h-screen">
+            <div className="text text-4xl">{heading}</div>
+            <div className="text">{about}</div>
+            <div className="text">{tech}</div>            
         </div>
     );
 };

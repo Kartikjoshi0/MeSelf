@@ -50,9 +50,9 @@ const Tech = () => {
 
     return (
         <div  ref={mainContainerRef} className=" w-screen h-screen ">
-            <div className="text-2xl  sm:text-6xl pl-[150px] sm:pl-[400px]">Tech stack</div>
+            <div className="text-2xl pt-[50px] sm:text-6xl pl-[150px] sm:pl-[400px]">Tech stack</div>
             
-                <div ref={containerRef} className="grid grid-cols-3  sm:flex m-5 mr-10 p-10 shadow-2xl shadow-stone-100 gap-3 justify-around pt-10  overflow-hidden opacity-1 bg-white  rounded-md ">
+                <div ref={containerRef} className="grid grid-cols-4  sm:flex m-5 mr-10 p-10 shadow-2xl shadow-stone-100 gap-3 justify-around pt-10  overflow-hidden opacity-1 bg-white  rounded-md ">
                     <Image className='icon ' src={rectImg} alt={'React'} width={100} height={100} />
                     <Image className='icon ' src={jsImg} alt={'JavaScript'} width={80} height={80} />
                     <Image className='icon ' src={tsImg} alt={'TypeScript'} width={80} height={80} />
@@ -63,7 +63,7 @@ const Tech = () => {
                     <Image className='icon' src={postgresImg} alt={'PostgreSQL'} width={80} height={80} />
                     <Image className='icon' src={tailwindImg} alt={'Tailwind CSS'} width={80} height={80} />
                     <Image className='icon' src={dockerImg} alt={'Docker'} width={100} height={100} />
-                    <Image className='icon' src={gitImg} alt={'Github '} width={80} height={80} />
+                    <Image className='icon' src={gitImg} alt={'Github '} width={50} height={50} />
                 </div>
             </div>
     );

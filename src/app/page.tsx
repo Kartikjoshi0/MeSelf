@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <div className='overflow-hidden'>
     <div className=' relative z-2 overflow-hidden'>
-      <div className='pannel  w-screen h-[500px] bg-black'><Intro /></div>
+      <div className='pannel  w-screen h-[600px] bg-black'><Intro /></div>
       <div  className='pannel  w-screen h-[500px] bg-stone-50 '><Tech /></div>
     </div>
     <div className='relative z-50'>

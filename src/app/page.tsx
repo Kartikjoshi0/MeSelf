@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import Text from './components/Text';
 import Intro from './components/Intro';
 import Tech from './components/Tech';
+import GetTouch from './components/GetTouch';
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -14,16 +15,11 @@ const Home = () => {
     const panels = gsap.utils.toArray('.pannel');
     panels.forEach((panel , i) => {
       ScrollTrigger.create({
-        trigger: panel,
+        trigger: '.panel',
         start: 'top top',
         pin: true,
         pinSpacing: false,
-        scrub:true,
-        // snap: {
-        //   snapTo: 1,
-        //   duration: { min: 0.2, max: 0.5 },
-        //   delay: 0.1, 
-        // }
+        scrub:true
       });
     });
 
@@ -33,7 +29,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <div className='overflow-hidden'>
     <div className=' relative z-2 overflow-hidden'>
       <div className='pannel  w-screen h-[500px] bg-black'><Intro /></div>
       <div  className='pannel  w-screen h-[500px] bg-stone-50 '><Tech /></div>
@@ -41,9 +37,9 @@ const Home = () => {
     <div className='relative z-50'>
       <Projects />
     </div>
-    <div  className='pannel  w-screen h-[500px] bg-gray-200 '></div>
+    <div  className='pannel  w-screen h-[500px] bg-gray-200 '><GetTouch /></div>
 
-    </>
+    </div>
     
   );
 };

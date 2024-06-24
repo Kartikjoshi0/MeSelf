@@ -6,9 +6,11 @@ import { BsGithub } from "react-icons/bs";
 import { CiLinkedin } from "react-icons/ci";
 import { BsTwitterX } from "react-icons/bs";
 
+import Link from 'next/link';
+
 const Intro=()=>{
-    const container=useRef();
-    const name=useRef()
+    const container=useRef(null);
+    const name=useRef(null)
     useGSAP(()=>{
         gsap.to(container.current,{
             width: '100%', 
@@ -44,13 +46,15 @@ const Intro=()=>{
 
     return (
        <div ref={container} className="w-screen h-screen flex flex-col justify-end  ">
-        <div className='icons opacity-0 flex pl-[900px]  text-4xl gap-3'>
-            <div><BsGithub /></div>
-            <div><CiLinkedin /></div>
-            <div><BsTwitterX /></div>
+        <div className='icons text-xl opacity-0 sm:opacity-0 flex text-4xl gap-3 pl-[200px] sm:pl-[900px] '>
+            <div className='cursor-pointer'><Link href={'https://github.com/Kartikjoshi0'}><BsGithub /></Link></div>
+            <div className='cursor-pointer'><Link href={'https://www.linkedin.com/in/kartik-joshi-64304b217/'}><CiLinkedin /></Link></div>
+            <div className='cursor-pointer'><Link href={'https://x.com/jKai_99'}><BsTwitterX /></Link></div>
+
+
            </div>
-           <div ref={name} className='Name-text text-9xl  opacity-0 pl-5 '>Kartik Joshi</div> 
-           <div className='Name-text text-4xl opacity-0 pl-[600px]'>full stack devloper</div>
+           <div ref={name} className='Name-text text-4xl sm:text-9xl  opacity-0 pl-5 '>Kartik Joshi</div> 
+           <div className='Name-text text-xl  sm:text-4xl opacity-0 pl-[100px] sm:pl-[600px]'>full stack devloper</div>
            
         </div>
         

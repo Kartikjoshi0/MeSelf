@@ -7,15 +7,15 @@ gsap.registerPlugin(ScrollTrigger);
 interface textProp{
     heading: string,
     about: string,
-    tech: string
+    tech: any
 }
 
 const Text = ({heading , about , tech}: textProp) => {
-    const container = useRef(null);
+    const container = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.from(container.current.querySelectorAll('.text'), {
+            gsap.from(container.current!.querySelectorAll('.text'), {
                 ease: 'power4',
                 y: 800,
                 x: -300,
@@ -32,14 +32,14 @@ const Text = ({heading , about , tech}: textProp) => {
             });
         }, container);
 
-        return () => ctx.revert(); // Clean up on unmount
+        return () => ctx.revert(); 
     }, []);
 
     return (
-        <div ref={container} className="text-container w-[600px] h-[350px] pr-[100px] shadow-2xl shadow-stone-100 bg-white rounded-md  flex flex-col  gap-2 text-2xl pl-10 w-screen h-screen">
-            <div className="text text-4xl">{heading}</div>
-            <div className="text">{about}</div>
-            <div className="text">{tech}</div>            
+        <div ref={container} className="h-[300px] text-container shadow-2xl shadow-stone-100 bg-white rounded-md  flex flex-col  gap-2  p-10 ">
+            <div className="text text-xl sm:text-4xl">{heading}</div>
+            <div className="text text-sm sm:text-lg opacity-75">{about}</div>
+            <div className="text opacity-0 sm:opacity-100 sm:text-sm flex gap-5">{tech}</div>            
         </div>
     );
 };
